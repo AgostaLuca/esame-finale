@@ -1,10 +1,18 @@
+<button (click)="back()">Home</button>
 <div class="container">
   <div class="row">
-    <div class="col-6">
-      <p>sunrise: {{ sunriseSunset.sunrise }}</p>
+    <h2 class="text-center">Latitude: {{latitude}}, Longitude: {{longitude}}</h2>
+  </div>
+  <div class="row justify-content-evenly">
+    <div class="col-2">
+      <p class="text-center fw-bold">Sunrise</p>
+      <img class="img-fluid" src="https://sunrisesunset.io/wp-content/uploads/2022/03/sunrise-5.svg" alt="">
+      <p class="text-center fw-bold">{{ sunriseSunset.sunrise }}</p>
     </div>
-    <div class="col-6">
-      <p>sunset: {{ sunriseSunset.sunset }}</p>
+    <div class="col-2">
+      <p class="text-center fw-bold">Sunset</p>
+      <img class="img-fluid" src="https://sunrisesunset.io/wp-content/uploads/2022/03/sunset-5.svg" alt="">
+      <p class="text-center fw-bold"> {{ sunriseSunset.sunset }} </p>
     </div>
   </div>
   <div class="row justify-content-center">
@@ -14,7 +22,7 @@
         <td class="col-4 text-center fw-bold">grades</td>
         <td class="col-4 text-center fw-bold">Icon</td>
       </tr>
-      <tr class="border" *ngFor="let dataTime of weather.dataseries">
+      <tr class="border" *ngFor="let dataTime of weather">
         <td class="col-4 text-center">{{ dataTime.timepoint }}</td>
         <td class="col-4 text-center">{{ dataTime.temp2m }} °</td>
         <td class="col-4 text-center">
