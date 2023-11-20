@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GetApiService } from '../services/get-api.service';
-import { SunriseSunset } from '../models/typing';
+import { SunriseSunset, Weather } from '../models/typing';
 
 @Component({
   selector: 'app-weather',
@@ -11,6 +11,7 @@ export class WeatherComponent implements OnInit {
   latitude: string = '';
   longitude: string = '';
   sunriseSunset!: SunriseSunset;
+  weather!: Weather;
 
   constructor(private activatedRoute: ActivatedRoute, private getApiService: GetApiService) {}
 
@@ -24,6 +25,12 @@ export class WeatherComponent implements OnInit {
         this.sunriseSunset = responseSunriseSunset;
         console.log(this.sunriseSunset.sunset);
       }
-    })
+    });
+    this.activatedRoute.data.subscribe(({ responseWeather }) => {
+      if (responseWeather) {
+        this.weather = responseWeather;
+        console.log(this.weather);
+      }
+    });
   }
 }

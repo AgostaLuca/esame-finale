@@ -17,6 +17,12 @@ const routes: Routes = [
           route.params['lon']!
         );
       },
+      responseWeather: (route: ActivatedRouteSnapshot) => {
+        return inject(GetApiService).searchWeather(
+          route.params['lat']!,
+          route.params['lon']!
+        );
+      },
     },
   },
 ];
