@@ -1,1 +1,33 @@
-<p>home works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+        <div class="w-100">
+            <label class="w-25" for="lat">Lat: </label>
+            <input class="w-75" name="lat" [(ngModel)]="latitude" min="-90" max="90"/>
+        </div>
+        <div class="w-100">
+            <label class="w-25" for="lon">Lon: </label>
+            <input class="w-75" type="number" name="lon" [(ngModel)]="longitude" min="-180" max="180"/>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+        <button class="w-25" [routerLink]="['/weather', latitude , longitude]">
+            Go
+        </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+        <p [routerLink]="['/weather', '40.779897' , '-73.968565']">New York</p>
+    </div>
+    <div class="col-4">
+        <p [routerLink]="['/weather', '45.4654219' , '9.1859243']">Milan</p>
+    </div>
+    <div class="col-4">
+        <p [routerLink]="['/weather', '45.070312' , '7.6868565']">Torino</p>
+    </div>
+  </div>
+</div>
