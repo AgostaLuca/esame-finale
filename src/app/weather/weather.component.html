@@ -1,2 +1,26 @@
-<p>sunrise: {{ sunriseSunset.sunrise }}</p> 
-<p>sunset: {{ sunriseSunset.sunset }}</p> 
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <p>sunrise: {{ sunriseSunset.sunrise }}</p>
+    </div>
+    <div class="col-6">
+      <p>sunset: {{ sunriseSunset.sunset }}</p>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <table>
+      <tr class="border ">
+        <td class="col-4 text-center fw-bold">time</td>
+        <td class="col-4 text-center fw-bold">grades</td>
+        <td class="col-4 text-center fw-bold">Icon</td>
+      </tr>
+      <tr class="border" *ngFor="let dataTime of weather.dataseries">
+        <td class="col-4 text-center">{{ dataTime.timepoint }}</td>
+        <td class="col-4 text-center">{{ dataTime.temp2m }} °</td>
+        <td class="col-4 text-center">
+            <img [src]="dataTime.icon" alt="">
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
