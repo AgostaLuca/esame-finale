@@ -21,6 +21,11 @@ export class GetApiService {
     return this.apiService.searchWeather(lat, lon).pipe(
       map((response: any) => {
         response.dataseries.forEach((element: any) => {
+          let milliseconds = new Date().getTime();
+          milliseconds = milliseconds + (element.timepoint * 60 * 60 * 1000);
+          const date = new Date(milliseconds);
+          element.day = date.toUTCString().slice(0, -8);
+
           if (element.prec_type === 'snow') {
             element.icon =
               'https://www.7timer.info/img/misc/about_two_snow.png';
@@ -47,7 +52,6 @@ export class GetApiService {
             }
           }
         });
-
         return response.dataseries as Weather;
       })
     );

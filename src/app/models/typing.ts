@@ -13,6 +13,7 @@ export type SunriseSunset = {
 };
 
 export type Weather = {
+  day: string;
   timepoint: number;
   cloudcover: number;
   seeing: number;

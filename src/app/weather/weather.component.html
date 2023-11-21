@@ -26,7 +26,8 @@
       </thead>
       <tbody>
         <tr class="border" *ngFor="let dataTime of weather">
-          <td class="col-4 text-center">{{ dataTime.timepoint }}</td>
+          <td class="col-4 text-center"> 
+            {{ dataTime.day }}{{ dataTime.timepoint }}</td>
           <td class="col-4 text-center">{{ dataTime.temp2m }} °</td>
           <td class="col-4 text-center">
               <img [src]="dataTime.icon" alt="">

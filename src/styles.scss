@@ -1,14 +1,200 @@
 $primary: rgb(108, 172, 222);
 
+
 @import "../node_modules/bootstrap-scss/bootstrap.scss";
 
+@for $i from 7 through 100 {
+    $i: $i;
 
-.h-70vh{
+    .vh-#{$i} {
+        height: #{$i}vh;
+    }
+
+    .min-vh-#{$i} {
+        min-height: #{$i}vh;
+    }
+
+    .h-#{$i} {
+        height: unquote('#{$i}%');
+    }
+
+    .w-#{$i} {
+        width: unquote('#{$i}%');
+    }
+
+    @include media-breakpoint-up(lg) {
+        .w-lg-#{$i} {
+            width: unquote('#{$i}%') !important;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        .w-md-#{$i} {
+            width: unquote('#{$i}%') !important;
+        }
+    }
+
+    .top-#{$i} {
+        top: unquote('#{$i}%');
+    }
+
+    .bottom-#{$i} {
+        bottom: unquote('#{$i}%');
+    }
+
+    .end-#{$i} {
+        right: unquote('#{$i}%');
+    }
+
+    .start-#{$i} {
+        left: unquote('#{$i}%');
+    }
+
+    $fontSize: $i * 0.1;
+
+    .fs-#{$i} {
+        font-size: #{$fontSize}rem !important;
+    }
+
+    @include media-breakpoint-up(lg) {
+        $fontSize: $i * 0.1;
+
+        .fs-lg-#{$i} {
+            font-size: #{$fontSize}rem !important;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        $fontSize: $i * 0.1;
+
+        .fs-md-#{$i} {
+            font-size: #{$fontSize}rem !important;
+        }
+    }
+
+    $paddingValue: $i * 0.25;
+
+    .p-#{$i} {
+        padding: #{$paddingValue}rem;
+    }
+
+    .pt-#{$i} {
+        padding-top: #{$paddingValue}rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+        .pt-lg-#{$i} {
+            padding-top: #{$paddingValue}rem;
+        }
+    }
+
+    .pb-#{$i} {
+        padding-bottom: #{$paddingValue}rem;
+    }
+
+    .pe-#{$i} {
+        padding-right: #{$paddingValue}rem;
+    }
+
+    .ps-#{$i} {
+        padding-left: #{$paddingValue}rem;
+    }
+
+    $marginValue: $i * 0.25;
+
+    .m-#{$i} {
+        margin: #{$marginValue}rem;
+    }
+
+    .mt-#{$i} {
+        margin-top: #{$marginValue}rem;
+    }
+
+    .mb-#{$i} {
+        margin-bottom: #{$marginValue}rem;
+    }
+
+    .me-#{$i} {
+        margin-right: #{$marginValue}rem;
+    }
+
+    .ms-#{$i} {
+        margin-left: #{$marginValue}rem;
+    }
+}
+
+body {
+    background-color: rgb(145, 197, 230);
+}
+
+.h-70vh {
     height: 70vh;
 }
-.h-30vh{
+
+.h-30vh {
     height: 30vh;
 }
-.w-15{
+
+.w-15 {
     width: 15%;
+}
+
+.color-red {
+    color: red;
+}
+
+.bgc-blue {
+    background-color: rgb(49, 49, 84);
+}
+
+.bgc-light-blue {
+    background-color: rgb(93, 103, 153);
+}
+
+.py-5rem {
+    padding-left: 8rem;
+    padding-right: 8rem;
+}
+
+.mt-4rem {
+    margin-top: 4rem;
+}
+
+.h-lg-75 {
+    @include media-breakpoint-up(lg) {
+        height: 75%;
+    }
+}
+
+.vh-80-lg-100 {
+    height: 80vh;
+    @include media-breakpoint-up(lg) {
+        height: 100vh;
+    }
+}
+
+.vh-20-lg-100 {
+    height: 20vh;
+
+    @include media-breakpoint-up(lg) {
+        height: 100vh;
+    }
+}
+
+.border-lg-blue{
+    @include media-breakpoint-up(lg) {
+        border-left: solid .5rem rgb(49, 49, 84);
+    }
+}
+
+.h-lg-100 {
+    @include media-breakpoint-up(lg) {
+        height: 100%;
+    }
+}
+
+.h-lg-16 {
+    @include media-breakpoint-up(lg) {
+        height: 16.66%;
+    }
 }
