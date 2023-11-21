@@ -64,7 +64,6 @@ export class HomeComponent implements OnInit {
   }
 
   addFavourites() {
-    console.log('latitude' + this.latitude);
     if (
       this.longitude != '' &&
       this.longitude != null &&

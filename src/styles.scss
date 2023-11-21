@@ -135,7 +135,7 @@ body {
     height: 30vh;
 }
 
-.w-15 {
+.w-lg-15 {
     width: 15%;
 }
 
@@ -151,9 +151,11 @@ body {
     background-color: rgb(110, 121, 179);
 }
 
-.py-5rem {
-    padding-left: 8rem;
-    padding-right: 8rem;
+.px-lg-8rem {
+    @include media-breakpoint-up(lg) {
+        padding-left: 8rem;
+        padding-right: 8rem;
+    }   
 }
 
 .mt-4rem {
@@ -168,6 +170,7 @@ body {
 
 .vh-80-lg-100 {
     height: 80vh;
+
     @include media-breakpoint-up(lg) {
         height: 100vh;
     }
@@ -181,7 +184,7 @@ body {
     }
 }
 
-.border-lg-blue{
+.border-lg-blue {
     @include media-breakpoint-up(lg) {
         border-left: solid .5rem rgb(49, 49, 84);
     }
@@ -197,4 +200,25 @@ body {
     @include media-breakpoint-up(lg) {
         height: 16.66%;
     }
+}
+
+.btn {
+    border-radius: 5px;
+    background-color: rgb(110, 121, 179);
+    border: solid 2px rgb(110, 121, 179);
+    color: white;
+}
+
+.btn:hover {
+    color: white;
+    border: solid 2px white;
+    background-color: rgb(110, 121, 179);
+}
+
+.fs-large {
+    font-size: large;
+}
+
+.text-underline {
+    text-decoration: underline;
 }
