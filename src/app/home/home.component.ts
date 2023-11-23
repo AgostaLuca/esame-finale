@@ -9,7 +9,7 @@ export class HomeComponent implements OnInit {
   latitude: string = '';
   longitude: string = '';
   name: string = '';
-  error = false;
+  error = '';
   favourites: Favourite[] = [];
   suggesteds: Favourite[] = [
     {
@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
     this.latitude = '';
     this.longitude = '';
     this.name = '';
-    this.error = false;
+    this.error = '';
   }
   // this function is used to load session favourites in "this.favourities"
   updateFavourites() {
@@ -83,38 +83,23 @@ export class HomeComponent implements OnInit {
         )
           present = true;
       }
-
       if (!present) {
-        let favouriteJSON = sessionStorage.getItem('favouritesArray');
-        
-        if (favouriteJSON) {
-          this.error = false;
-          this.favourites = JSON.parse(favouriteJSON);
-          this.favourites.push({
-            latitude: this.latitude,
-            longitude: this.longitude,
-            name: this.name,
-          });
-          sessionStorage.setItem(
-            'favouritesArray',
-            JSON.stringify(this.favourites)
-          );
-        } else {
-          this.favourites.push({
-            latitude: this.latitude,
-            longitude: this.longitude,
-            name: this.name,
-          });
-          sessionStorage.setItem(
-            'favouritesArray',
-            JSON.stringify(this.favourites)
-          );
-        }
+        this.error = '';
+        this.favourites.push({
+          latitude: this.latitude,
+          longitude: this.longitude,
+          name: this.name,
+        });
+        sessionStorage.setItem(
+          'favouritesArray',
+          JSON.stringify(this.favourites)
+        );
       } else {
-        this.error = true;
+        this.error =
+          'The coordinates or name are already among the favorites!!!';
       }
     } else {
-      this.error = true;
+      this.error = 'Invalid value entered';
     }
   }
 
