@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
   longitude: string = '';
   name: string = '';
   error = false;
+  favourites: Favourite[] = [];
   suggesteds: Favourite[] = [
     {
       latitude: '40.779897',
@@ -42,7 +43,6 @@ export class HomeComponent implements OnInit {
       name: 'Paris',
     }
   ];
-  favourites: Favourite[] = [];
 
   constructor() {}
 
@@ -56,6 +56,7 @@ export class HomeComponent implements OnInit {
     this.name = '';
     this.error = false;
   }
+  // this function is used to load session favourites in "this.favourities"
   updateFavourites() {
     let favouriteJSON = sessionStorage.getItem('favouritesArray');
     if (favouriteJSON) {
@@ -64,6 +65,7 @@ export class HomeComponent implements OnInit {
   }
 
   addFavourites() {
+    // control if the values inserted in the inputs are valid
     if (
       this.longitude != '' &&
       this.longitude != null &&
@@ -72,6 +74,7 @@ export class HomeComponent implements OnInit {
       this.name.trim().length > 0
     ) {
       let present = false;
+      // control if the coordinates or name is already add
       for (let i = 0; i < this.favourites.length && present != true; i++) {
         if (
           (this.favourites[i].latitude === this.latitude &&
@@ -83,7 +86,7 @@ export class HomeComponent implements OnInit {
 
       if (!present) {
         let favouriteJSON = sessionStorage.getItem('favouritesArray');
-
+        
         if (favouriteJSON) {
           this.error = false;
           this.favourites = JSON.parse(favouriteJSON);

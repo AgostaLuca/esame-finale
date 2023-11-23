@@ -12,7 +12,7 @@ export class WeatherComponent implements OnInit {
   latitude: string = '';
   longitude: string = '';
   sunriseSunset!: SunriseSunset;
-  weather!: Weather[];
+  weathers!: Weather[];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -32,11 +32,8 @@ export class WeatherComponent implements OnInit {
     });
     this.activatedRoute.data.subscribe(({ responseWeather }) => {
       if (responseWeather) {
-        this.weather = responseWeather;
+        this.weathers = responseWeather;
       }
     });
-  }
-  back() {
-    this.location.back();
   }
 }

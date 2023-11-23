@@ -8,7 +8,6 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   sunriseSunsetURL = 'https://api.sunrisesunset.io/json?';
-
   weatherURL = 'https://www.7timer.info/bin/astro.php?';
 
   searchSunriseSunset(lat: string, lon: string) {
