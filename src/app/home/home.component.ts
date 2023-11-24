@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
   }
   // this function is used to load session favourites in "this.favourities"
   updateFavourites() {
-    let favouriteJSON = sessionStorage.getItem('favouritesArray');
+    let favouriteJSON = localStorage.getItem('favouritesArray');
     if (favouriteJSON) {
       this.favourites = JSON.parse(favouriteJSON);
     }
@@ -90,7 +90,7 @@ export class HomeComponent implements OnInit {
           longitude: this.longitude,
           name: this.name,
         });
-        sessionStorage.setItem(
+        localStorage.setItem(
           'favouritesArray',
           JSON.stringify(this.favourites)
         );
@@ -110,6 +110,6 @@ export class HomeComponent implements OnInit {
         break;
       }
     }
-    sessionStorage.setItem('favouritesArray', JSON.stringify(this.favourites));
+    localStorage.setItem('favouritesArray', JSON.stringify(this.favourites));
   }
 }
